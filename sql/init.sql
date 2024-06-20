@@ -1,3 +1,4 @@
+drop table if exists coffee_respository;
 create table if not exists coffee_respository (
     id integer primary key,
     country text,
@@ -8,9 +9,18 @@ create table if not exists coffee_respository (
     roaster text,
     roast_date text,
     bag_size integer,
+    price integer,
     flavors text,
     image_note blob,
+    agtron integer,
     comments text
 );
 
-drop table coffee_respository;
+drop table if exists baristas;
+create table if not exists baristas(
+    id integer primary key,
+    name text,
+    email text,
+    join_community_date text
+);
+
