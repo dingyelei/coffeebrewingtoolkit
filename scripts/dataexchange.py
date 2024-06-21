@@ -1,5 +1,5 @@
 from dataaccessor import DataAccessor
-from dataaccessor import DataAccessorSQLiteAdapter
+from models import CoffeeRepository
 
 class DataExchange:
 
@@ -7,20 +7,18 @@ class DataExchange:
         self.data_accessor = DataAccessor.get_data_accessor(**param)
         
     def get_coffee_repositories(self, index):
+        data = self.get_raw_data(index)
+        return [CoffeeRepository(**item) for item in data]
+    
+    def get_raw_data(self, index):
         (schema, raw_data) = self.data_accessor.fetch_data(index)
-
-        data = []
-        for item in raw_data:
-            data.append(dict(zip(schema, item)))
-
-        print(data)
-
-        coffee_repositories = None
-        return coffee_repositories
-
+        return [dict(zip(schema, item)) for item in raw_data]
+        
 if __name__ == '__main__':
-    de = DataExchange(
+    data_exchange = DataExchange(
         data_accessor = "SQLite",
         db_file = "...../example.db"
         )
-    print(de.get_coffee_repositories("coffee_repositories"))
+    coffee_repositories  = data_exchange.get_coffee_repositories("coffee_repositories")
+    for repository in coffee_repositories:
+        print(repository)
