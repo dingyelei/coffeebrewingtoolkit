@@ -69,10 +69,3 @@ class DataAccessorSQLiteAdapter(DataAccessor):
         except Error as e:
             print(e)
         return conn
-
-if __name__ == '__main__':
-    da = DataAccessor.get_data_accessor(
-        data_accessor = "SQLite",
-        db_file = "/Users/yeleiding/workbench/coffee/it/repository/coffeebrewingtoolkit/samples/db/example.db"
-    )
-    print(da.fetch_data("coffee_repositories"))
