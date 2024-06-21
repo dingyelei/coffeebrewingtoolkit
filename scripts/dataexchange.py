@@ -21,6 +21,6 @@ class DataExchange:
 if __name__ == '__main__':
     de = DataExchange(
         data_accessor = "SQLite",
-        db_file = "/Users/yeleiding/workbench/coffee/it/repository/coffeebrewingtoolkit/samples/db/example.db"
+        db_file = "...../example.db"
         )
     print(de.get_coffee_repositories("coffee_repositories"))
