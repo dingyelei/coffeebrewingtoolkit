@@ -29,17 +29,17 @@ create table if not exists brewings(
     id integer primary key,
     brewing_date text,
 
-    temperature integer,
+    water_temperature integer,
     ratio text,
-    dose real,
-    water real,
+    mass_of_coffee real,
+    mass_of_water real,
     grinder text,
-    grinding_size real,
+    grind_size real,
     dripper text,
 
     brewing_method text,
     brewing_time integer,
-    coffee real,
+    mass_of_beverage real,
 
     tds real,
     pe real,

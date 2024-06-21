@@ -36,21 +36,24 @@ class Brewings:
     def __init__(self, **param):
         self.id = param['id']
         self.brewing_date = param['brewing_date']
-        self.temperature = param['temperature']
+        self.water_temperature = param['water_temperature']
         self.ratio = param['ratio']
-        self.dose = param['dose']
-        self.water = param['water']
+        self.mass_of_coffee = param['mass_of_coffee']
+        self.mass_of_water = param['mass_of_water']
         self.grinder = param['grinder']
-        self.grinding_size = param['grinding_size']
+        self.grind_size = param['grind_size']
         self.dripper = param['dripper']
         self.brewing_method = param['brewing_method']
         self.brewing_time = param['brewing_time']
-        self.coffee = param['coffee']
+        self.mass_of_beverage = param['mass_of_beverage']
         self.tds = param['tds']
         self.pe = param['pe']
         self.coffee_id = param['coffee_id']
         self.barista_id = param['barista_id']
 
+        self.pe = self.mass_of_beverage * self.tds / self.mass_of_coffee
 
     def __str__(self):
-        return f"Brewing details #{self.id} by barista-{self.barista_id}"
+        tds = "{:.2f}".format(self.tds)
+        pe = "{:.2f}".format(self.pe)
+        return f"Brewing details #{self.id} by barista-{self.barista_id} on {self.brewing_date}\n  {self.ratio}, w/ {self.grinder} #{self.grind_size}, water temp.{self.water_temperature}°C\n  TDS:{tds}% PE:{pe}%"
