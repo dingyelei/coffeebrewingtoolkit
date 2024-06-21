@@ -27,14 +27,14 @@ create table if not exists baristas(
 drop table if exists brewings;
 create table if not exists brewings(
     id integer primary key,
-    date text,
+    brewing_date text,
 
     temperature integer,
     ratio text,
     dose real,
     water real,
     grinder text,
-    griding_size real,
+    grinding_size real,
     dripper text,
 
     brewing_method text,
