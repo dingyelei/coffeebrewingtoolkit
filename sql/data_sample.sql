@@ -1,5 +1,5 @@
-delete from coffee_respository;
-insert into coffee_respository 
+delete from coffee_repositories;
+insert into coffee_repositories 
 values (
     16,
     "Panama",

@@ -1,5 +1,5 @@
-drop table if exists coffee_respository;
-create table if not exists coffee_respository (
+drop table if exists coffee_repositories;
+create table if not exists coffee_repositories (
     id integer primary key,
     country text,
     region text,
@@ -48,24 +48,4 @@ create table if not exists brewings(
     barista_id integer,
     foreign key (coffee_id) references coffee_respository(id),
     foreign key (barista_id) references baristas(id)
-);
-
-insert into brewings
-values(
-    1,
-    "2024-06-01",
-    91,
-    "13:200",
-    13.0,
-    200.6,
-    "c40",
-    28.0,
-    "v60",
-    "[00:00]40g;[00:40]120g;[01:25]200g",
-    181,
-    167.9,
-    1.33,
-    null,
-    16,
-    2
 );
