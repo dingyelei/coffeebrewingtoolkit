@@ -23,21 +23,4 @@ class DataExchange:
     def get_raw_data(self, index):
         (schema, raw_data) = self.data_accessor.fetch_data(index)
         return [dict(zip(schema, item)) for item in raw_data]
-        
-if __name__ == '__main__':
-    data_exchange = DataExchange(
-        data_accessor = "SQLite",
-        db_file = ".../example.db"
-        )
     
-    coffee_repositories  = data_exchange.get_coffee_repositories("coffee_repositories")
-    for repository in coffee_repositories:
-        print(repository)
-
-    baristas = data_exchange.get_baristas("baristas")
-    for barista in baristas:
-        print(barista)
-
-    brewings = data_exchange.get_brewings("brewings")
-    for brewing in brewings:
-        print(brewing)
