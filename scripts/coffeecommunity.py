@@ -13,7 +13,7 @@ class CoffeeCommunity:
 if __name__ == '__main__':
     cc = CoffeeCommunity(
         data_accessor = "SQLite",
-        db_file = "/Users/yeleiding/workbench/coffee/it/repository/coffeebrewingtoolkit/samples/db/example.db",
+        db_file = ".../example.db",
         data_visualizer = "Matplotlib"
     )
     cc.brewing_chart()
