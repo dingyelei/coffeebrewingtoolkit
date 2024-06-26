@@ -1,5 +1,3 @@
-from datetime import datetime
-from datetime import timedelta
 
 class CoffeeRepository:
 
@@ -31,7 +29,9 @@ class Barista:
 
     def __str__(self):
         return f"Barista #{self.id} '{self.name}' joined community on {self.join_community_date}"
-    
+
+from time import strftime
+from time import gmtime
 class Brewings:
     def __init__(self, **param):
         self.id = param['id']
@@ -57,3 +57,7 @@ class Brewings:
         tds = "{:.2f}".format(self.tds)
         pe = "{:.2f}".format(self.pe)
         return f"Brewing details #{self.id} by barista-{self.barista_id} on {self.brewing_date}\n  {self.ratio}, w/ {self.grinder} #{self.grind_size}, water temp.{self.water_temperature}°C\n  TDS:{tds}% PE:{pe}%"
+    
+    def thumbnail(self):
+        brewing_time = strftime("%M'%S''", gmtime(self.brewing_time))
+        return f"Brewing #{self.id}: {self.ratio}, {self.grinder} #{self.grind_size}, {self.dripper}, {brewing_time}"

@@ -16,5 +16,11 @@ if __name__ == '__main__':
         db_file = ".../example.db",
         data_visualizer = "Matplotlib"
     )
-    cc.brewing_chart()
+    brewings = {
+        'data_brewings': cc.data_exchange.get_brewings('brewings'),
+        'x_axis': 'pe',
+        'y_axis': 'tds',
+        }
+    param = brewings | cc.data_visualizer.defaults
+    cc.brewing_chart(**param)
     
