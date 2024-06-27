@@ -1,3 +1,4 @@
+from models import Brewings
 
 class DataVisualizer:
 
@@ -22,6 +23,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
 import numpy as np
 import time
+import statistics
 
 class DataVisualizerMatplotlibAdapter(DataVisualizer):
     def __init__(self):
@@ -36,7 +38,7 @@ class DataVisualizerMatplotlibAdapter(DataVisualizer):
             'subplot_title': 'Coffee Brewing Control Chart',
             'y_span': 0.05,
             'y_limits_left': 1.0,
-            'y_limits_right': 1.6,
+            'y_limits_right': 1.8,
             'y_format': '{x:.2f}',
             'y_label': 'STRENGTH | Solubles Concentration - %', 
             'x_span': 0.5,
@@ -48,14 +50,47 @@ class DataVisualizerMatplotlibAdapter(DataVisualizer):
             'grid_line_width': 0.25,
             'grid_color': '.25',
             'marker_size': 11,
+            'box_plot_group_by': 'dripper',
+            'box_plot_weight': 'tds',
         }
 
-    def brewing_chart(self, **param):
-        print('build brewing chart')
+    def box_chart(self, **param):
+        group_by_keyword = param['box_plot_group_by']
+        brewings = param['data_brewings']
+        brewing_groups = Brewings.group_by(brewings, group_by_keyword)
+
+        x_labels = brewing_groups.keys()
+        weights = [ [brewing.__dict__[param['box_plot_weight']] for brewing in brewing_groups[x_label]] for x_label in x_labels]
+        
+        print('build box chart for brewing comparison.')
         fig, ax = plt.subplots()
+        ax.set_title(param['subplot_title'], weight='bold')
+        ax.grid(linestyle=param['grid_line_style'], linewidth=param['grid_line_width'], color=param['grid_color'])
 
         param['ax'] = ax
-        self.subplot_basics_setup(**param)
+        self.y_axis_setup(**param)
+
+        boxplot = ax.boxplot(weights, patch_artist=True, tick_labels=x_labels)
+        
+        colors = self.render_color(len(x_labels))
+        for patch, color in zip(boxplot['boxes'], colors):
+            patch.set_facecolor(color)
+        
+        legend_labels = [f"{label}: {"{:.2f}".format(statistics.mean(weight))}"for weight, label in zip(weights, x_labels)]
+        ax.legend(loc=param['label_loc'], fontsize=param['label_font_size'], labelspacing=param['label_spacing'], labels=legend_labels)
+        
+        fig.patch.set(linewidth=param['patch_line_width'], edgecolor=param['patch_edge_color'])
+        plt.show()
+        
+    def brewing_chart(self, **param):
+        print('build brewing chart.')
+        fig, ax = plt.subplots()
+        ax.set_title(param['subplot_title'], weight='bold')
+        ax.grid(linestyle=param['grid_line_style'], linewidth=param['grid_line_width'], color=param['grid_color'])
+
+        param['ax'] = ax
+        self.x_axis_setup(**param)
+        self.y_axis_setup(**param)
 
         brewings = param['data_brewings']
         colors = self.render_color(len(brewings))
@@ -65,23 +100,19 @@ class DataVisualizerMatplotlibAdapter(DataVisualizer):
                     label=brewing.thumbnail())
         
         ax.legend(loc=param['label_loc'], fontsize=param['label_font_size'], labelspacing=param['label_spacing'])
-        # frame around figure
         fig.patch.set(linewidth=param['patch_line_width'], edgecolor=param['patch_edge_color'])
         plt.show()
 
-    def subplot_basics_setup(self, **param):
-        print("chart X-axis/Y-axis setup")
+    def x_axis_setup(self, **param):
         ax = param['ax']
-
-        ax.set_title(param['subplot_title'], weight='bold')
         ax.set_xlabel(param['x_label'], weight='bold')
-        ax.set_ylabel(param['y_label'], weight='bold')
-        ax.grid(linestyle=param['grid_line_style'], linewidth=param['grid_line_width'], color=param['grid_color'])
-
         ax.set_xlim(param['x_limits_left'], param['x_limits_right'])
         ax.xaxis.set_major_locator(MultipleLocator(param['x_span']))
         ax.xaxis.set_minor_formatter(param['x_format'])
 
+    def y_axis_setup(self, **param):
+        ax = param['ax']
+        ax.set_ylabel(param['y_label'], weight='bold')
         ax.set_ylim(param['y_limits_left'], param['y_limits_right'])
         ax.yaxis.set_major_locator(MultipleLocator(param['y_span']))
         ax.yaxis.set_minor_formatter(param['y_format'])

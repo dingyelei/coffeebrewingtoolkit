@@ -33,6 +33,14 @@ class Barista:
 from time import strftime
 from time import gmtime
 class Brewings:
+    @staticmethod
+    def group_by(brewings, group_by_keyword):
+        data = {}
+        for brewing in brewings:
+            group_by_id = brewing.__dict__[group_by_keyword]
+            data[group_by_id] = data.get(group_by_id, []) + [brewing]
+        return data
+
     def __init__(self, **param):
         self.id = param['id']
         self.brewing_date = param['brewing_date']
@@ -60,4 +68,5 @@ class Brewings:
     
     def thumbnail(self):
         brewing_time = strftime("%M'%S''", gmtime(self.brewing_time))
-        return f"Brewing #{self.id}: {self.ratio}, {self.grinder} #{self.grind_size}, {self.dripper}, {brewing_time}"
+        return f"Coffee #{self.coffee_id} - Brewing #{self.id}: {self.ratio}, {self.grinder} #{self.grind_size}, {self.dripper}, {brewing_time}"
+    
