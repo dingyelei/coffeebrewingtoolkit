@@ -16,6 +16,7 @@ class CoffeeRepository:
         self.image_note = param['image_note']
         self.agtron = param['agtron']
         self.comments = param['comments']
+        self.barista_id = param['barista_id']
 
     def __str__(self):
         return f"{self.id}: {self.roaster}\n  {self.cultivar} by {self.producer},{self.region}, {self.country}\n  roasted on {self.roast_date}, ¥{self.price}/{self.bag_size}g\n  flavor notes: {self.flavors}"
@@ -58,7 +59,7 @@ class Brewings:
         self.pe = param['pe']
         self.coffee_id = param['coffee_id']
         self.barista_id = param['barista_id']
-
+        
         self.pe = self.mass_of_beverage * self.tds / self.mass_of_coffee
 
     def __str__(self):

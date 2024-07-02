@@ -1,3 +1,11 @@
+drop table if exists baristas;
+create table if not exists baristas(
+    id integer primary key,
+    name text,
+    email text,
+    join_community_date text
+);
+
 drop table if exists coffee_repositories;
 create table if not exists coffee_repositories (
     id integer primary key,
@@ -13,15 +21,9 @@ create table if not exists coffee_repositories (
     flavors text,
     image_note blob,
     agtron integer,
-    comments text
-);
-
-drop table if exists baristas;
-create table if not exists baristas(
-    id integer primary key,
-    name text,
-    email text,
-    join_community_date text
+    comments text,
+    barista_id integer,
+    foreign key (barista_id) references baristas(id)
 );
 
 drop table if exists brewings;

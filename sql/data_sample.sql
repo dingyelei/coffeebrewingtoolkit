@@ -1,7 +1,17 @@
+delete from baristas;
+insert into baristas
+values(
+    null,
+    "yelei",
+    "dingyelei@gmail.com",
+    "2024-04-01"
+);
+select * from baristas;
+
 delete from coffee_repositories;
 insert into coffee_repositories 
 values (
-    16,
+    null,
     "Panama",
     "Boquete",
     "Hacienda La Esmeralda",
@@ -14,24 +24,15 @@ values (
     "jasmin,orange",
     null,
     75,
-    null
+    null,
+    1
 );
-select * from coffee_respository;
-
-delete from baristas;
-insert into baristas
-values(
-    2,
-    "yelei",
-    "dingyelei@gmail.com",
-    "2024-04-01"
-);
-select * from baristas;
+select * from coffee_repositories;
 
 delete from brewings;
 insert into brewings
 values(
-    1,
+    null,
     "2024-06-01",
     91,
     "13:200",
@@ -45,12 +46,12 @@ values(
     166.5,
     1.35,
     null,
-    16,
-    2
+    1,
+    1
 );
 insert into brewings
 values(
-    2,
+    null,
     "2024-06-02",
     91,
     "13:200",
@@ -64,12 +65,12 @@ values(
     166.9,
     1.32,
     null,
-    16,
-    2
+    1,
+    1
 );
 insert into brewings
 values(
-    3,
+    null,
     "2024-06-03",
     91,
     "12:200",
@@ -83,12 +84,12 @@ values(
     167.9,
     1.32,
     null,
-    16,
-    2
+    1,
+    1
 );
 insert into brewings
 values(
-    4,
+    null,
     "2024-06-04",
     91,
     "12:200",
@@ -102,12 +103,12 @@ values(
     168.1,
     1.31,
     null,
-    16,
-    2
+    1,
+    1
 );
 insert into brewings
 values(
-    5,
+    null,
     "2024-06-05",
     91,
     "12:200",
@@ -121,12 +122,12 @@ values(
     167.1,
     1.28,
     null,
-    16,
-    2
+    1,
+    1
 );
 insert into brewings
 values(
-    6,
+    null,
     "2024-06-06",
     91,
     "12:200",
@@ -140,7 +141,7 @@ values(
     167.4,
     1.27,
     null,
-    16,
-    2
+    1,
+    1
 );
 select * from brewings;
