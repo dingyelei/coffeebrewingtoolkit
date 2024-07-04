@@ -4,6 +4,7 @@ values(
     null,
     "yelei",
     "dingyelei@gmail.com",
+    '12345678',
     "2024-04-01"
 );
 select * from baristas;

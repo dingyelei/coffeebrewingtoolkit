@@ -26,6 +26,7 @@ class Barista:
         self.id = param['id']
         self.name = param['name']
         self.email = param['email']
+        self.password = param['password']
         self.join_community_date = param['join_community_date']
 
     def __str__(self):

@@ -3,6 +3,7 @@ create table if not exists baristas(
     id integer primary key,
     name text,
     email text,
+    password text,
     join_community_date text
 );
 

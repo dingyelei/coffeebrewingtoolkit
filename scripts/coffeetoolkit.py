@@ -1,7 +1,7 @@
 from dataexchange import DataExchange
 from datavisulizer import DataVisualizer
 
-class CoffeeCommunity:
+class CoffeeToolkit:
     def __init__(self, **param):
         self.data_exchange = DataExchange(**param)
         self.data_visualizer = DataVisualizer.get_data_visualizer(**param)
@@ -14,9 +14,9 @@ class CoffeeCommunity:
 
 
 if __name__ == '__main__':
-    cc = CoffeeCommunity(
+    cc = CoffeeToolkit(
         data_accessor = "SQLite",
-        db_file = ".../example.db",
+        db_file = "...example.db",
         data_visualizer = "Matplotlib"
     )
     brewings = {
@@ -25,7 +25,7 @@ if __name__ == '__main__':
         'y_axis': 'tds',
         }
     param = cc.data_visualizer.defaults | brewings
-    cc.brewing_chart(**param)
+    #cc.brewing_chart(**param)
     
     brewing_groups = {
         'data_brewings': cc.data_exchange.get_brewings('brewings'),
@@ -35,5 +35,5 @@ if __name__ == '__main__':
         'y_limits_right': 1.375,
     }
     param = cc.data_visualizer.defaults | brewing_groups
-    #cc.box_chart(**param)
+    cc.box_chart(**param)
     
