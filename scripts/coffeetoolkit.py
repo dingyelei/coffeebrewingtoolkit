@@ -16,7 +16,7 @@ class CoffeeToolkit:
 if __name__ == '__main__':
     cc = CoffeeToolkit(
         data_accessor = "SQLite",
-        db_file = "...example.db",
+        db_file = "/Users/yeleiding/workbench/coffee/it/repository/coffeebrewingtoolkit/samples/db/example.db",
         data_visualizer = "Matplotlib"
     )
     brewings = {
