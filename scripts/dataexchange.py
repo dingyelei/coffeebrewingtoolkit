@@ -1,5 +1,5 @@
 from dataaccessor import DataAccessor
-from models import CoffeeRepository
+from models import Coffee
 from models import Barista
 from models import Brewings
 
@@ -8,9 +8,9 @@ class DataExchange:
     def __init__(self, **param):
         self.data_accessor = DataAccessor.get_data_accessor(**param)
         
-    def get_coffee_repositories(self, index):
+    def get_coffees(self, index):
         data = self.get_raw_data(index)
-        return [CoffeeRepository(**item) for item in data]
+        return [Coffee(**item) for item in data]
     
     def get_baristas(self, index):
         data = self.get_raw_data(index)

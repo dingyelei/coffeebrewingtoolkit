@@ -1,5 +1,5 @@
 
-class CoffeeRepository:
+class Coffee:
 
     def __init__(self, **param):
         self.id = param['id']
@@ -13,7 +13,7 @@ class CoffeeRepository:
         self.bag_size = param['bag_size']
         self.price = param['price']
         self.flavors = param['flavors']
-        self.image_note = param['image_note']
+        self.image_note = param['image_url']
         self.agtron = param['agtron']
         self.comments = param['comments']
         self.barista_id = param['barista_id']

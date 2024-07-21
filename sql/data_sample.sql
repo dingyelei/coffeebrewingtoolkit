@@ -4,31 +4,50 @@ values(
     null,
     "yelei",
     "dingyelei@gmail.com",
-    '12345678',
+    '$2b$10$L1cXycvd4ksgPNMmBpV.g.QNAz0lFXlB8eqIsjPgWEo5K8Gm0tILC',
     "2024-04-01"
 );
 select * from baristas;
 
-delete from coffee_repositories;
-insert into coffee_repositories 
+delete from coffees;
+insert into coffees 
 values (
     null,
-    "Panama",
-    "Boquete",
-    "Hacienda La Esmeralda",
-    "Geisha",
-    "Washed",
-    "SEY",
-    "2024-01-16",
+    "El Salvador",
+    "Chalatenango",
+    "Finca Santa Rosa",
+    "Pacamara",
+    "Honey",
+    "aoma",
+    "2024-06-22",
     100,
-    366,
-    "jasmin,orange",
-    null,
-    75,
+    138,
+    "cherry,apple,pomegranate,honey",
+    '/coffee_repositories/1_coffee_1.jpg', -- readfile('sql/coffee_1.jpg'),
+    73,
     null,
     1
 );
-select * from coffee_repositories;
+insert into coffees 
+values (
+    null,
+    "Bolivia",
+    "Yanacachi",
+    "Finca Takesi",
+    "Geisha",
+    "Washed",
+    "Coffee Collective",
+    "2024-06-09",
+    120,
+    298,
+    "melon,bergamot,peach",
+    '/coffee_repositories/1_coffee_2.jpg', 
+    70,
+    null,
+    1
+);
+select * from coffees;
+-- select writefile('sql/tmp.jpeg', image_note) from coffee_repositories where id = 1;
 
 delete from brewings;
 insert into brewings

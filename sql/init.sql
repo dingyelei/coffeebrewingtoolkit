@@ -7,8 +7,8 @@ create table if not exists baristas(
     join_community_date text
 );
 
-drop table if exists coffee_repositories;
-create table if not exists coffee_repositories (
+drop table if exists coffees;
+create table if not exists coffees (
     id integer primary key,
     country text,
     region text,
@@ -20,7 +20,7 @@ create table if not exists coffee_repositories (
     bag_size integer,
     price integer,
     flavors text,
-    image_note blob,
+    image_url text, -- image_note blob,
     agtron integer,
     comments text,
     barista_id integer,
@@ -49,6 +49,6 @@ create table if not exists brewings(
 
     coffee_id integer,
     barista_id integer,
-    foreign key (coffee_id) references coffee_respository(id),
+    foreign key (coffee_id) references coffees(id),
     foreign key (barista_id) references baristas(id)
 );
