@@ -1,7 +1,7 @@
 from dataaccessor import DataAccessor
 from models import Coffee
 from models import Barista
-from models import Brewings
+from models import Brewing
 
 class DataExchange:
 
@@ -18,7 +18,7 @@ class DataExchange:
     
     def get_brewings(self, index):
         data = self.get_raw_data(index)
-        return [Brewings(**item) for item in data]
+        return [Brewing(**item) for item in data]
 
     def get_raw_data(self, index):
         (schema, raw_data) = self.data_accessor.fetch_data(index)

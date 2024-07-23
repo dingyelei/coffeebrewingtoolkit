@@ -34,7 +34,7 @@ class Barista:
 
 from time import strftime
 from time import gmtime
-class Brewings:
+class Brewing:
     @staticmethod
     def group_by(brewings, group_by_keyword):
         data = {}

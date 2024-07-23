@@ -1,4 +1,4 @@
-from models import Brewings
+from models import Brewing
 
 class DataVisualizer:
 
@@ -57,7 +57,7 @@ class DataVisualizerMatplotlibAdapter(DataVisualizer):
     def box_chart(self, **param):
         group_by_keyword = param['box_plot_group_by']
         brewings = param['data_brewings']
-        brewing_groups = Brewings.group_by(brewings, group_by_keyword)
+        brewing_groups = Brewing.group_by(brewings, group_by_keyword)
 
         x_labels = brewing_groups.keys()
         weights = [ [brewing.__dict__[param['box_plot_weight']] for brewing in brewing_groups[x_label]] for x_label in x_labels]
