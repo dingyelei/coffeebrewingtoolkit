@@ -18,6 +18,9 @@ class DataVisualizer:
     
     def brewing_chart(self, **param):
         raise Exception("method not implemented")
+    
+    def box_chart(self, **param):
+        raise Exception("method not implemented")
 
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator

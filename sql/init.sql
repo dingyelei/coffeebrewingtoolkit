@@ -4,7 +4,7 @@ create table if not exists baristas(
     name text,
     email text,
     password text,
-    join_community_date text
+    created_date text
 );
 
 drop table if exists coffees;

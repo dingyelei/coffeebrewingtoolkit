@@ -27,10 +27,10 @@ class Barista:
         self.name = param['name']
         self.email = param['email']
         self.password = param['password']
-        self.join_community_date = param['join_community_date']
+        self.join_community_date = param['created_date']
 
     def __str__(self):
-        return f"Barista #{self.id} '{self.name}' joined community on {self.join_community_date}"
+        return f"Barista #{self.id} '{self.name}' created on {self.join_community_date}"
 
 from time import strftime
 from time import gmtime
@@ -71,4 +71,15 @@ class Brewing:
     def thumbnail(self):
         brewing_time = strftime("%M'%S''", gmtime(self.brewing_time))
         return f"Coffee #{self.coffee_id} - Brewing #{self.id}: {self.ratio}, {self.grinder} #{self.grind_size}, {self.dripper}, {brewing_time}"
-    
+
+
+if __name__ == '__main__':
+    param = {
+        'id': 16,
+        'name': 'yelei',
+        'email': 'yelei@coffeecompany.com',
+        'password': '1qaz2wsx',
+        'join_community_date': '2024-07-23',
+    }
+    yelei = Barista(**param)
+    print(yelei)

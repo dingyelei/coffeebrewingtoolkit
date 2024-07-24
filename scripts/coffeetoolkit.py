@@ -16,7 +16,7 @@ class CoffeeToolkit:
 if __name__ == '__main__':
     cc = CoffeeToolkit(
         data_accessor = "SQLite",
-        db_file = ".../example.db",
+        db_file = "...example.db",
         data_visualizer = "Matplotlib"
     )
 
@@ -30,7 +30,7 @@ if __name__ == '__main__':
         'y_axis': 'tds',
         }
     param = cc.data_visualizer.defaults | brewings
-    #cc.brewing_chart(**param)
+    # cc.brewing_chart(**param)
     
     brewing_groups = {
         'data_brewings': cc.data_exchange.get_brewings('brewings'),
