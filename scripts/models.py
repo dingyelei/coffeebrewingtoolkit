@@ -27,10 +27,11 @@ class Barista:
         self.name = param['name']
         self.email = param['email']
         self.password = param['password']
-        self.join_community_date = param['created_date']
+        self.image_note = param['image_url']
+        self.created_date = param['created_date']
 
     def __str__(self):
-        return f"Barista #{self.id} '{self.name}' created on {self.join_community_date}"
+        return f"Barista #{self.id} '{self.name}' created on {self.created_date}"
 
 from time import strftime
 from time import gmtime

@@ -4,6 +4,7 @@ create table if not exists baristas(
     name text,
     email text,
     password text,
+    image_url text,
     created_date text
 );
 

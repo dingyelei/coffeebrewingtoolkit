@@ -5,6 +5,7 @@ values(
     "yelei",
     "dingyelei@gmail.com",
     '$2b$10$L1cXycvd4ksgPNMmBpV.g.QNAz0lFXlB8eqIsjPgWEo5K8Gm0tILC',
+    '/baristas/1.jpg'
     "2024-04-01"
 );
 select * from baristas;
@@ -23,7 +24,7 @@ values (
     100,
     138,
     "cherry,apple,pomegranate,honey",
-    '/coffee_repositories/1_coffee_1.jpg', -- readfile('sql/coffee_1.jpg'),
+    '/coffees/1_coffee_1.jpg', -- readfile('sql/coffee_1.jpg'),
     73,
     null,
     1
@@ -41,7 +42,7 @@ values (
     120,
     298,
     "melon,bergamot,peach",
-    '/coffee_repositories/1_coffee_2.jpg', 
+    '/coffees/1_coffee_2.jpg', 
     70,
     null,
     1
