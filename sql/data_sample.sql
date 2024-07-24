@@ -5,7 +5,7 @@ values(
     "yelei",
     "dingyelei@gmail.com",
     '$2b$10$L1cXycvd4ksgPNMmBpV.g.QNAz0lFXlB8eqIsjPgWEo5K8Gm0tILC',
-    '/baristas/1.jpg'
+    '/baristas/1.jpg',
     "2024-04-01"
 );
 select * from baristas;
