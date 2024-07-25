@@ -87,6 +87,7 @@ values(
     1.32,
     null,
     1,
+    1,
     1
 );
 insert into brewings
@@ -105,6 +106,7 @@ values(
     167.9,
     1.32,
     null,
+    1,
     1,
     1
 );
@@ -125,6 +127,7 @@ values(
     1.31,
     null,
     1,
+    1,
     1
 );
 insert into brewings
@@ -143,6 +146,7 @@ values(
     167.1,
     1.28,
     null,
+    0,
     1,
     1
 );
@@ -162,6 +166,7 @@ values(
     167.4,
     1.27,
     null,
+    1,
     1,
     1
 );

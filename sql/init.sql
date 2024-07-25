@@ -48,6 +48,8 @@ create table if not exists brewings(
     tds real,
     pe real,
 
+    is_good integer,
+
     coffee_id integer,
     barista_id integer,
     foreign key (coffee_id) references coffees(id),

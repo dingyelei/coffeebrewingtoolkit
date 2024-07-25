@@ -13,7 +13,7 @@ class Coffee:
         self.bag_size = param['bag_size']
         self.price = param['price']
         self.flavors = param['flavors']
-        self.image_note = param['image_url']
+        self.image_url = param['image_url']
         self.agtron = param['agtron']
         self.comments = param['comments']
         self.barista_id = param['barista_id']
@@ -59,6 +59,7 @@ class Brewing:
         self.mass_of_beverage = param['mass_of_beverage']
         self.tds = param['tds']
         self.pe = param['pe']
+        self.is_good = param['is_good']
         self.coffee_id = param['coffee_id']
         self.barista_id = param['barista_id']
         
@@ -80,7 +81,8 @@ if __name__ == '__main__':
         'name': 'yelei',
         'email': 'yelei@coffeecompany.com',
         'password': '1qaz2wsx',
-        'join_community_date': '2024-07-23',
+        'image_url': '/baristas/1.jpg',
+        'created_date': '2024-07-23',
     }
     yelei = Barista(**param)
     print(yelei)
