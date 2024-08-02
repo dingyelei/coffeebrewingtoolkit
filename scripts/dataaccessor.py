@@ -15,9 +15,8 @@ class DataAccessor:
     def __str__(self):
         return self.name
     
-    def fetch_data(self, index):
+    def fetch_data(self, index, **param):
         raise Exception("method not implemented")
-    
 
 import sqlite3
 from sqlite3 import Error
@@ -26,18 +25,27 @@ class DataAccessorSQLiteAdapter(DataAccessor):
         self.name = "SQLite Data Accessor"
         self.db_file = db_file
 
-    def fetch_data(self, index):
+    def fetch_data(self, index, **param):
         raw_schema = self.get_schema(index)
         schema = [item for row in raw_schema for item in row]
-        return (schema, self.get_data(index))
+        return (schema, self.get_data(index, **param))
     
-    def get_data(self, table):
+    def get_data(self, table, **param):
         conn = self.create_connection()
         cur = conn.cursor()
         rows = None
 
+        condition = ''
+        for key in param.keys():
+            condition += f" {key}='{param[key]}'"
+        
+        sql = f"select * from {table}"
+        if condition != '':
+            sql = f"select * from {table} where{condition}"
+        # print(f"SQL: {sql}")
+
         try:
-            cur.execute(f"select * from {table}")
+            cur.execute(sql)
             rows = cur.fetchall()
         except Error as e:
                 print(e)

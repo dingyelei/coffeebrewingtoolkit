@@ -1,6 +1,5 @@
 
 class Coffee:
-
     def __init__(self, **param):
         self.id = param['id']
         self.country = param['country']
@@ -62,7 +61,8 @@ class Brewing:
         self.is_good = param['is_good']
         self.coffee_id = param['coffee_id']
         self.barista_id = param['barista_id']
-        
+        self.coffee = None
+
         self.pe = self.mass_of_beverage * self.tds / self.mass_of_coffee
 
     def __str__(self):
@@ -72,7 +72,7 @@ class Brewing:
     
     def thumbnail(self):
         brewing_time = strftime("%M'%S''", gmtime(self.brewing_time))
-        return f"Coffee #{self.coffee_id} - Brewing #{self.id}: {self.ratio}, {self.grinder} #{self.grind_size}, {self.dripper}, {brewing_time}"
+        return f"#{self.coffee.id} {self.coffee.roaster} {self.coffee.cultivar} {self.coffee.country}  - Brewing #{self.id}: {self.ratio}, {self.grinder}/{self.grind_size}, {self.dripper}, {brewing_time}"
 
 
 if __name__ == '__main__':

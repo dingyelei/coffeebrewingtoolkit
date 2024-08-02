@@ -55,6 +55,8 @@ class DataVisualizerMatplotlibAdapter(DataVisualizer):
             'marker_size': 11,
             'box_plot_group_by': 'dripper',
             'box_plot_weight': 'tds',
+            'figure_height':6.6,
+            'figure_width':8.8,
         }
 
     def box_chart(self, **param):
@@ -67,6 +69,8 @@ class DataVisualizerMatplotlibAdapter(DataVisualizer):
         
         print('build box chart for brewing comparison.')
         fig, ax = plt.subplots()
+        fig.set_figheight(param['figure_height'])
+        fig.set_figwidth(param['figure_width'])
         ax.set_title(param['subplot_title'], weight='bold')
         ax.grid(linestyle=param['grid_line_style'], linewidth=param['grid_line_width'], color=param['grid_color'])
 
@@ -88,6 +92,8 @@ class DataVisualizerMatplotlibAdapter(DataVisualizer):
     def brewing_chart(self, **param):
         print('build brewing chart.')
         fig, ax = plt.subplots()
+        fig.set_figheight(param['figure_height'])
+        fig.set_figwidth(param['figure_width'])
         ax.set_title(param['subplot_title'], weight='bold')
         ax.grid(linestyle=param['grid_line_style'], linewidth=param['grid_line_width'], color=param['grid_color'])
 
